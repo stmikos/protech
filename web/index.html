@@ -1,0 +1,21 @@
+<!doctype html><html lang="ru"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>FireProtect WebApp</title><link rel="stylesheet" href="style.css"/></head><body>
+<div class="wrap"><header><h1>FireProtect — калькулятор и заявка</h1><p>Быстрый расчёт и отправка заявки в CRM (Bitrix24).</p></header>
+<section class="card"><h2>📊 Калькулятор</h2><div class="grid">
+<label>Площадь, м²<input id="area" type="number" min="0" value="1200"/></label>
+<label>Высота, м<input id="height" type="number" min="0" value="6"/></label>
+<label>Тип работ<select id="work_type"><option value="fire">🔥 Огнезащита</option><option value="paint">🎨 Покраска</option><option value="combo">🔥+🎨 Комплекс</option></select></label>
+<label>Сложность<select id="complexity"><option value="low">Низкая</option><option value="mid" selected>Средняя</option><option value="high">Высокая</option></select></label>
+</div><div class="result"><div>Ставка, ₽/м²: <b id="rate">0</b></div><div>Оценка бюджета: <b id="price">0 ₽</b></div><div>Срок выполнения: <b id="days">0 дн.</b></div></div></section>
+<section class="card"><h2>📞 Бриф</h2><div class="grid">
+<label>Имя <input id="name" placeholder="Ваше имя"/></label>
+<label>Телефон/Telegram <input id="phone" placeholder="+7..."/></label>
+<label>Город/Объект <input id="city" placeholder="Москва / Склад, ул. Ленина"/></label>
+<label>Дата последней обработки <input id="last_date" type="date"/></label>
+<label>Периодичность, лет<select id="cycle_years"><option value="2">2 года</option><option value="3">3 года</option><option value="4">4 года</option></select></label>
+<label>Следующая дата (расчётная) <input id="next_date" type="date" disabled/></label></div>
+<label>Комментарий<textarea id="comment" rows="3" placeholder="Коротко опишите объект и задачу"></textarea></label>
+<div class="actions"><button id="sendBtn">Отправить в CRM</button><span id="status"></span></div>
+</section><footer><small>Demo. Set API_BASE in <code>web/main.js</code>.</small></footer></div>
+<script src="main.js"></script></body></html>
