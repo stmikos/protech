@@ -1,0 +1,43 @@
+# Render Blueprint: Backend (Docker) + Static WebApp
+services:
+  - type: web
+    name: fireprotect-backend
+    env: docker
+    plan: free
+    autoDeploy: true
+    repo: https://github.com/<your-user>/<your-repo>
+    branch: main
+    buildFilter:
+      paths:
+        - app/**
+        - Dockerfile
+        - requirements.txt
+        - .env.example
+        - render.yaml
+    envVars:
+      - key: BITRIX_WEBHOOK
+        sync: false
+      - key: CATEGORY_ID
+        value: "0"
+      - key: STAGE_ID
+        value: "NEW"
+      - key: ALLOWED_ORIGINS
+        value: "*"
+      - key: PORT
+        value: "8000"
+  - type: static
+    name: fireprotect-web
+    plan: free
+    autoDeploy: true
+    repo: https://github.com/<your-user>/<your-repo>
+    branch: main
+    buildCommand: ""
+    staticPublishPath: web
+    routes:
+      - type: rewrite
+        source: /
+        destination: /index.html
+    headers:
+      - path: /* 
+        name: Cache-Control
+        value: no-store

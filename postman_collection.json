@@ -1,0 +1,31 @@
+{
+  "info": {
+    "name": "FireProtect WebApp + Bitrix",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "POST /lead",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{API_BASE}}/lead",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\": \"Иван\", \"phone\": \"+79991234567\", \"city\": \"Москва\", \"object_address\": \"Склад, ул. Ленина, 12\", \"area_m2\": 1200, \"height_m\": 6, \"work_type\": \"fire\", \"complexity\": \"mid\", \"budget_est\": 350000, \"last_service_date\": \"2023-09-01\", \"next_service_date\": \"2025-09-01\", \"comment\": \"Нужен выезд\", \"utm_source\": \"telegram_webapp\", \"utm_campaign\": \"mvp\"}"
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "API_BASE",
+      "value": "http://localhost:8000"
+    }
+  ]
+}
